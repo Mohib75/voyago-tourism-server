@@ -29,37 +29,6 @@ async function run() {
 
 		const countryCollection = client.db("touristsDB").collection("country")
 
-		app.get("/touristsSpot", async (req, res) => {
-			const cursor = touristsSpotCollection.find()
-			const result = await cursor.toArray()
-			res.send(result)
-		})
-
-		app.get("/touristsSpot/:id", async (req, res) => {
-			const id = req.params.id
-			const query = { _id: new ObjectId(id) }
-			const result = await touristsSpotCollection.findOne(query)
-			res.send(result)
-		})
-
-		app.get("/myList/:email", async (req, res) => {
-			const cursor = touristsSpotCollection.find({ email: req.params.email })
-			const result = await cursor.toArray()
-			res.send(result)
-		})
-
-		app.get("/country", async (req, res) => {
-			const cursor = countryCollection.find()
-			const result = await cursor.toArray()
-			res.send(result)
-		})
-
-		app.get("/country/:country_name", async (req, res) => {
-			const cursor = touristsSpotCollection.find({ country_name: req.params.country_name })
-			const result = await cursor.toArray()
-			res.send(result)
-		})
-
 		app.post("/touristsSpot", async (req, res) => {
 			const newTouristsSpot = req.body
 			console.log(newTouristsSpot)
