@@ -60,12 +60,12 @@ async function run() {
 			res.send(result)
 		})
 
-		// app.post("/touristsSpot", async (req, res) => {
-		// 	const newTouristsSpot = req.body
-		// 	console.log(newTouristsSpot)
-		// 	const result = await touristsSpotCollection.insertOne(newTouristsSpot)
-		// 	res.send(result)
-		// })
+		app.post("/touristsSpot", async (req, res) => {
+			const newTouristsSpot = req.body
+			console.log(newTouristsSpot)
+			const result = await touristsSpotCollection.insertOne(newTouristsSpot)
+			res.send(result)
+		})
 
 		app.post("/country", async (req, res) => {
 			const newCountry = req.body
